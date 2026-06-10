@@ -1,0 +1,39 @@
+NO.;NAMA PUSKESMAS;KODE PUSKESMAS;LINTANG;BUJUR;ALAMAT PUSKESMAS;LUAS WILAYAH;DESA; JUMLAH PENDUDUK ;JUMLAH KK;KARAKTERISTIK WILAYAH KERJA
+1;NGESREP;1032212;-7,0463;110,4179;Jl. Teuku Umar 271, Ds. Ngesrep, Kec. Banyumanik;5;3;36;12;Perkotaan
+2;PADANGSARI;1032213;-7,0706;110,4217;Jl. Meranti Raya No. 389 Rt 008 Rw 002 Kel. Padangsari, Kec. Banyumanik;6;3;28.674;10.236;Perkotaan
+3;PUNDAKPAYUNG;1032214;-7,0969;110,4097;Jl. Perintis Kemerdekaan, Kec. Banyumanik;5;2;37;12;Perkotaan
+4;SRONDOL;1032211;-7,0589;110,4141;Jl. Setiabudi No.209, Ds. Srondol, Kec. Banyumanik;1;3;46.836;16.959;Perkotaan
+5;CANDILAMA;1032218;-7,0134;110,4318;Jl. Wahidin 22, Kec. Candisari;3;3;42.425;15.135;Perkotaan
+6;KAGOK;1032219;-7,0086;110,4172;Jl. Telomoyo 3, Kec. Candisari;3;4;36.160;11.945;Perkotaan
+7;PEGANDAN;1032215;-7,0113;110,4048;Jl. Lamongan No 2, Kec. Gajah Mungkur;9;8;58.580;17.026;Perkotaan
+8;GAYAM SARI;1032226;-6,9965;110,4492;Jl. Slamet Riyadi No 4A, Kel. Gayamsari, Kec. Gayamsari;6;7;73;24.235;Perkotaan
+9;BANGET AYU;1032225;-6,9832;110,4766;Jl. Raya Bangetayu, Kec. Genuk;11;6;77.346;24.328;Perkotaan
+10;GENUK;1032224;-6,9666;110,47;Jl. Genuksari, Kec. Genuk;14701;7;43.590;17.494;Perkotaan
+11;GUNUNGPATI;1032209;-7,094;110,3343;Jl. Mr. Wuryanto No.38 Kel.Plalangan, Kec. Gunung Pati;36;11;60.924;20.473;Perkotaan
+12;SEKARAN;1032210;-7,0303;110,3724;Ds. Sekaran, Kec. Gunung Pati;18;5;40.159;12.255;Perkotaan
+13;KARANG MALANG;1032208;-7,0946;110,3344;Jl. Karang Malang, Kec. Mijen;10;4;14;5;Perkotaan
+14;MIJEN;1032207;-7,0563;110,3141;Jl. RM. Hadi Soebeno No. 5 Tambangan;29;10;66.228;17.531;Perkotaan
+15;NGALIYAN;1032241;-6,9977;110,3462;Jl. Wismasari Raya, Kec. Ngaliyan;28;6;61.245;19.645;Perkotaan
+16;PURWOYOSO;1032243;-7,0151;110,355;Jl. Siliwangi No. 572, Kec. Ngaliyan;3;2;38.119;11.286;Perkotaan
+17;TAMBAK AJI;1032242;-6,9833;110,3504;Jl. Raya Wahsongo, Ds. Tambak Aji, Kec. Ngaliyan;7;2;45.042;14.779;Perkotaan
+18;TELOGOSARI KULON;1032222;-6,9808;110,4575;Jl. Taman Satrio Manah 2, Ds. Telogosari Kulon, Kec. Pedurungan;7;4;89.186;26.489;Perkotaan
+19;TELOGOSARI WETAN;1032223;-6,9805;110,4591;Ds. Telogosari Wetan, Kec. Pedurungan;29;8;105;34;Perkotaan
+20;KARANG AYU;1032234;-6,9803;110,3998;Jl. Kencowungu III/28, Kec. Semarang Barat;2;4;21.972;5.133;Perkotaan
+21;KROBOKAN;1032237;-6,987;110,3914;Jl. Ari Buana I/XIII, Kec. Semarang Barat;5;3;33.949;11.506;Perkotaan
+22;LEBDOSARI;1032235;-6,9942;110,3797;Jl. Taman Lebdosari, Kec. Semarang Barat;7;4;38.928;13.091;Perkotaan
+23;MANYARAN;1032236;-6,9875;110,4049;Jl. Abdulrahman Saleh 267, Ds. Manyaran, Kec. Semarang Barat;6;3;46.963;13.984;Perkotaan
+24;NGEMPLAK SIMONGAN;1032238;-7,0013;110,3949;Jl. Srinindito 48/11,, Ds. Ngemplaksimongan, Kec. Semarang Barat;2;2;28.350;7.769;Perkotaan
+25;LAMPER TENGAH;1032217;-6,998;110,4364;Jl. Lemper Tengah Gg.XV,RT 001 RW 001, Kec. Semarang Selatan;2;4;29.912;10.183;Perkotaan
+26;PANDANARAN;1032216;-6,9877;110,4146;Jl. Pandanaran 79, Kec. Semarang Selatan;3;6;41.912;13.957;Perkotaan
+27;MIROTO;1032233;-6,9745;110,3998;Jl.Taman Seteran Barat No 3, Miroto, Kec. Semarang Tengah;3;6;31.414;11.423;Perkotaan
+28;PONCOL;1032232;-6,9794;110,4117;Jl. Imam Bonjol 114, Kec. Semarang Tengah;3;9;29.897;9.850;Perkotaan
+29;BUGANGAN;1032229;-6,9719;110,4364;Jl. Cilosari No 1, Kel. Bugangan, Kec. Semarang Timur;2;3;19.594;6.962;Perkotaan
+30;HALMAHERA;1032227;-6,9948;110,4377;Jl. Halmahera Raya 38, Kec. Semarang Timur;3;4;32.459;11.406;Perkotaan
+31;KARANG DORO;1032228;-6,9731;110,4379;Jl. Raden Patah 178, Kec. Semarang Timur;3;3;26.431;7.156;Perkotaan
+32;BANDARHARJO;1032230;-6,9622;110,4215;Jl. Layur RT 5/RW 4, Kel.Dadapsari, Kec. Semarang Utara;8;4;80.511;27.765;Perkotaan
+33;BULU LOR;1032231;-7,0332;110,4421;Jl. Bonowati Selatan II, Kec. Semarang Utara;3;5;49.239;19.806;Perkotaan
+34;KEDUNG MUNDU;1032220;-7,0246;110,4574;Jl. Sambiroto 1, Kec. Tambalang;21;7;143.534;45.622;Perkotaan
+35;ROWOSARI;1032221;-7,0556;110,4717;Jl.Prof. Soeharso, Kec. Tembalang;21;5;53.320;34.239;Perkotaan
+36;KARANG ANYAR;1032240;-6,971;110,3342;Jl. Karang Anyar, Kec. Tugu;19;4;17.233;5.840;Perkotaan
+37;MANGKANG;1032239;-6,9736;110,2976;Jl. Jendral Oerip Soemoharjo KM 16, Kec. Tugu;1227;3;16.865;5.059;Perkotaan
+TOTAL;;;-;-;;16257;177;1.477.262;520.630;37
