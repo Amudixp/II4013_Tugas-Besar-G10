@@ -1,0 +1,9 @@
+1.1 Manual name mapping: 10 puskesmas di-remap. Fixed 588 baris lat/lon.
+1.2 Rekonsiliasi skema semester: total_kasus_baru, total_lulus_unified
+2.1 Dropped 24 baris spurious (header leak=12, total kota=12, puskesmas NaN=12)
+2.2 Fixed 10 nilai negatif pada kasus_lama -> NaN
+2.3 Dropped kolom noise: ['no', 'id_kec', 'tahun', 'idl_laki', 'idl_perempuan', 'idl_total']
+3.1 Imputasi lat/lon: 0->0 missing. Semua terisi.
+3.2 Forward-fill capaian_imunisasi: 199->24 missing
+3.3 Semester-specific columns: 7+20 kolom, NaN dipertahankan
+4.1-4.2 Feature engineering: prevalensi_stunting, rasio_bblr, cakupan_k4, densitas_posyandu, sanitasi_total, risiko_ibu_komposit, tren_stunting (175/175 kelurahan valid untuk tren)
