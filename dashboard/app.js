@@ -117,7 +117,11 @@ Promise.all([
       labels: ['Risiko Tinggi', 'Risiko Sedang', 'Risiko Rendah'],
       datasets: [{
         data: [clusterCounts.Tinggi, clusterCounts.Sedang, clusterCounts.Rendah],
-        backgroundColor: [ACCENT, ACCENT2, OK],
+        backgroundColor: [
+          '#ffb3ba',
+          '#fef08a',
+          '#b5b9ff'
+        ],
         borderWidth: 0,
         hoverOffset: 8
       }]
