@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Stunting – Kota Semarang 2022</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+  <h1>Stunting & Kesehatan Ibu-Anak<br><span>Kota Semarang — 2022</span></h1>
+  <div class="header-meta">
+    II4013 Data Analytics<br>
+    KamiAkanLawan · G10 · ITB 2026
+  </div>
+</header>
+
+<nav>
+  <button class="active" onclick="switchTab('overview', this)"> Overview</button>
+  <button onclick="switchTab('tren', this)"> Tren Bulanan</button>
+  <button onclick="switchTab('peta', this)"> Peta Risiko</button>
+  <button onclick="switchTab('korelasi', this)"> Korelasi</button>
+  <button onclick="switchTab('tabel', this)"> Data Puskesmas</button>
+</nav>
+
+<main>
+
+<!-- Overview -->
+<div id="tab-overview" class="tab-panel active">
+
+  <div class="kpi-grid">
+    <div class="kpi" style="--kpi-color: var(--accent)">
+      <div class="kpi-label">Total Kasus 2022</div>
+      <div class="kpi-value">18.301</div>
+      <div class="kpi-sub">37 puskesmas · 175 kelurahan</div>
+    </div>
+    <div class="kpi" style="--kpi-color: var(--accent2)">
+      <div class="kpi-label">Stunting Tertinggi</div>
+      <div class="kpi-value">1.859</div>
+      <div class="kpi-sub">Februari 2022</div>
+    </div>
+    <div class="kpi" style="--kpi-color: var(--ok)">
+      <div class="kpi-label">Stunting Terendah</div>
+      <div class="kpi-value">1.292</div>
+      <div class="kpi-sub">Juli 2022 (↓30% dari puncak)</div>
+    </div>
+    <div class="kpi" style="--kpi-color: var(--accent3)">
+      <div class="kpi-label">Penurunan Stunting Jan→Des</div>
+      <div class="kpi-value">−18,4%</div>
+      <div class="kpi-sub">Tren keseluruhan membaik</div>
+    </div>
+    <div class="kpi" style="--kpi-color: var(--accent)">
+      <div class="kpi-label">Stunting Terbanyak</div>
+      <div class="kpi-value">2.545</div>
+      <div class="kpi-sub">Bandarharjo, Semarang Utara</div>
+    </div>
+    <div class="kpi" style="--kpi-color: var(--accent2)">
+      <div class="kpi-label">Total Kasus BBLR</div>
+      <div class="kpi-value">447</div>
+      <div class="kpi-sub">Kolerasi = 0.334 dengan total stunting</div>
+    </div>
+    <div class="kpi" style="--kpi-color: var(--ok)">
+      <div class="kpi-label">Avg Imunisasi</div>
+      <div class="kpi-value">72,6%</div>
+      <div class="kpi-sub">Rata-rata capaian 37 puskesmas</div>
+    </div>
+    <div class="kpi" style="--kpi-color: var(--accent3)">
+      <div class="kpi-label">Rata-rata Rasio Risti</div>
+      <div class="kpi-value">29,7%</div>
+      <div class="kpi-sub">Ibu hamil risiko tinggi</div>
+    </div>
+  </div>
+
+  <div class="chart-grid three">
+    <div class="card">
+      <div class="card-title">Tren Kota — Total Kasus Stunting per Bulan</div>
+      <div class="card-sub">Puncak Februari → penurunan konsisten → naik kembali di Agustus</div>
+      <div class="chart-wrap"><canvas id="overviewTrendChart" height="200"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Distribusi Kluster Risiko</div>
+      <div class="card-sub">K-Means clustering (37 puskesmas)</div>
+      <div class="chart-wrap"><canvas id="clusterDonut" height="200"></canvas></div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">Akumulasi Kasus per Kecamatan</div>
+      <div class="card-sub">Semarang Utara mendominasi (~14.9% total kota)</div>
+      <div class="chart-wrap"><canvas id="kecamatanBar" height="260"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Top 10 Puskesmas — Total Kasus</div>
+      <div class="card-sub">Bandarharjo sebagai outlier dominan (2.545 kasus)</div>
+      <div class="chart-wrap"><canvas id="puskesmasBar" height="260"></canvas></div>
+    </div>
+  </div>
+
+<div class="insight-grid">
+    <div class="insight" style="--insight-color: var(--accent3)">
+      <strong>Tren Positif Sepanjang 2022</strong>
+      <span>Total kasus <b>turun 18.4%</b> dari Januari ke Desember, menunjukkan program intervensi awal efektif. Namun terjadi kenaikan mulai Agustus yang perlu dievaluasi.</span>
+    </div>
+    <div class="insight" style="--insight-color: var(--accent)">
+      <strong>Ketimpangan Spasial Sangat Besar</strong>
+      <span>Semarang Utara (2.729 kasus) <b>hampir 6x lebih tinggi</b> dari Candisari (459 kasus). Pendekatan intervensi yang sama tidak optimal dan diperlukan <b>strategi per wilayah</b>.</span>
+    </div>
+    <div class="insight" style="--insight-color: var(--accent2)">
+      <strong>BBLR sebagai Sinyal Risiko Awal</strong>
+      <span>Korelasi kasus BBLR vs total stunting (r = 0.334) menunjukkan <b>hubungan volume positif</b>, namun stunting bersifat multifaktorial.</span>
+    </div>
+    <div class="insight" style="--insight-color: var(--ok)">
+      <strong>Posyandu: Kuantitas vs Densitas</strong>
+      <span>Jumlah posyandu cenderung berkaitan dengan <b>penurunan</b> prevalensi stunting. Namun, <b>densitas posyandu</b> per km² menunjukkan hubungan positif, yang diduga dipengaruhi oleh karakteristik wilayah perkotaan yang padat penduduk.</span>
+    </div>
+  </div>
+</div>
+
+<!-- Tren -->
+<div id="tab-tren" class="tab-panel">
+  <h2 class="section-title">Tren Kasus Stunting Bulanan — Kota Semarang 2022</h2>
+
+  <div class="chart-grid single">
+    <div class="card">
+      <div class="card-title">Total Kasus Stunting per Bulan (seluruh kota)</div>
+      <div class="card-sub">Puncak: Februari (1.859) · Terendah: Juli (1.292) · Penurunan Jan→Des: −18,4%</div>
+      <div class="chart-wrap"><canvas id="trenLineChart" height="120"></canvas></div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">Top 5 Puskesmas — Tren Membaik (Slope Negatif)</div>
+      <div class="card-sub">Nilai slope negatif = kasus turun rata-rata N kasus/bulan</div>
+      <div class="chart-wrap"><canvas id="trenTurunBar" height="220"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Top 5 Puskesmas — Tren Memburuk (Slope Positif)</div>
+      <div class="card-sub">Nilai slope positif = kasus naik rata-rata N kasus/bulan</div>
+      <div class="chart-wrap"><canvas id="trenNaikBar" height="220"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- Map -->
+<div id="tab-peta" class="tab-panel">
+  <h2 class="section-title">Peta Risiko Stunting per Puskesmas</h2>
+
+  <div class="map-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#f25f87"></div> Risiko Tinggi (3 puskesmas)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ff9f43"></div> Risiko Sedang (1 puskesmas)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#26d7a0"></div> Risiko Rendah (33 puskesmas)</div>
+    <div class="legend-item" style="margin-left:auto; color:var(--muted); font-size:11px">Klik titik untuk detail puskesmas</div>
+  </div>
+
+  <div class="card" style="padding: 0; overflow: hidden;">
+    <div id="map"></div>
+  </div>
+
+  <div style="margin-top: 14px; display: grid; grid-template-columns: repeat(3,1fr); gap: 14px;">
+    <div class="card">
+      <div class="card-title" style="color: var(--accent)">🔴 Risiko Tinggi</div>
+      <div class="card-sub">Cluster 2 — mean 1.360 kasus</div>
+      <div style="font-size:13px; color: var(--muted); line-height: 2">Bandarharjo · Karangdoro · Kedungmundu</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color: var(--accent2)">🟡 Risiko Sedang</div>
+      <div class="card-sub">Cluster 0 — 828 kasus</div>
+      <div style="font-size:13px; color: var(--muted); line-height: 2">Tambak Aji</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color: var(--ok)">🟢 Risiko Rendah</div>
+      <div class="card-sub">Cluster 1 — mean 406 kasus</div>
+      <div style="font-size:13px; color: var(--muted)">33 puskesmas dengan beban stunting lebih rendah dan profil risiko yang lebih terkendali</div>
+    </div>
+  </div>
+</div>
+
+<!-- Korelasi -->
+<div id="tab-korelasi" class="tab-panel">
+  <h2 class="section-title">Analisis Korelasi Faktor Risiko</h2>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">Kasus BBLR vs Total Stunting per Puskesmas (Q3)</div>
+      <div class="card-sub">r = +0.334 · Korelasi positif berdasarkan volume (bukan prevalensi)</div>
+      <div class="chart-wrap"><canvas id="scatterBBLR" height="280"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Jumlah Posyandu vs Prevalensi Stunting (Q4)</div>
+      <div class="card-sub">r = −0.223 · Lebih banyak posyandu → prevalensi sedikit lebih rendah</div>
+      <div class="chart-wrap"><canvas id="scatterPosyandu" height="280"></canvas></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom: 20px">
+    <div class="card-title">Ringkasan Nilai Korelasi Pearson</div>
+    <div class="card-sub">Terhadap total_stunting dan prevalensi_stunting per puskesmas</div>
+    <div class="chart-wrap"><canvas id="korrBar" height="120"></canvas></div>
+  </div>
+</div>
+
+<!-- Tabel -->
+<div id="tab-tabel" class="tab-panel">
+  <h2 class="section-title">Data Lengkap 37 Puskesmas</h2>
+
+  <div class="filter-bar">
+    <label>Filter Kluster:</label>
+    <select id="filterCluster" onchange="renderTable()">
+      <option value="">Semua</option>
+      <option value="Tinggi">🔴 Tinggi</option>
+      <option value="Sedang">🟡 Sedang</option>
+      <option value="Rendah">🟢 Rendah</option>
+    </select>
+    <span id="rowCount" style="margin-left:auto; color:var(--muted); font-size:12px"></span>
+  </div>
+
+  <div class="card">
+    <div class="table-wrap">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th onclick="sortTable('puskesmas')" style="cursor:pointer">Puskesmas ↕</th>
+            <th onclick="sortTable('kecamatan')" style="cursor:pointer">Kecamatan ↕</th>
+            <th>Kluster</th>
+            <th onclick="sortTable('total_stunting')" style="cursor:pointer">Total Stunting ↕</th>
+            <th onclick="sortTable('prevalensi_stunting')" style="cursor:pointer">Prevalensi ↕</th>
+            <th onclick="sortTable('kasus_bblr')" style="cursor:pointer">BBLR ↕</th>
+            <th onclick="sortTable('rasio_risti')" style="cursor:pointer">Rasio Risti ↕</th>
+            <th onclick="sortTable('capaian_imunisasi')" style="cursor:pointer">Imunisasi (%) ↕</th>
+            <th onclick="sortTable('jml_posyandu')" style="cursor:pointer">Posyandu ↕</th>
+            <th onclick="sortTable('tren_stunting')" style="cursor:pointer">Tren ↕</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
